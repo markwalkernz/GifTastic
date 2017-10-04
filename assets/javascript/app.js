@@ -1,7 +1,7 @@
 // Coding boot camp week 6 homework. AJAX and APIs.
 
 // variables
-var arrayCartoons = ["Thundercats", "Masters of the Universe", "Super Friends", "Danger Mouse", "Scooby Doo", "Doug"];
+var arrayCartoons = ["Thundercats", "Scooby Doo", "Doug", "Pokemon", "Ren and Stimpy", "The Jetsons", "Dexter's Laboratory"];
 
 
 
@@ -12,7 +12,7 @@ function createButton(buttonName) {
 
 	// button details
 	var newButton = $("<button>");
-		newButton.addClass("subjectButton");
+		newButton.addClass("subjectButton btn btn-primary");
 		newButton.attr("data-subject", buttonName);
 		newButton.text(buttonName);
 
@@ -31,7 +31,7 @@ $(document.body).on("click", ".subjectButton", function() {
 	console.log("searchTopic : " + searchTopic);
 
 	// create an ajax query string
-	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=kYICtWZcT1fj7pthCgscE5oHfqWoa3zP&limit=10" + "&q=cartoon+" + searchTopic;
+	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=kYICtWZcT1fj7pthCgscE5oHfqWoa3zP&limit=10" + "&q=" + searchTopic;
 
 	// run ajax query
 	$.ajax({
@@ -60,12 +60,13 @@ $(document.body).on("click", ".subjectButton", function() {
 
 				// create a new div for the image and include the rating paragraph
 				var imageDiv = $("<div>");
-				 	imageDiv.addClass("giphyImage");
+				 	imageDiv.addClass("imageDiv");
 				 	imageDiv.html(rating);
 
 				// create an image tag and append it to the inage div
 				var newImage = $("<img>");
 					newImage.attr("src", results[j].images.fixed_height_still.url);
+					newImage.addClass("giphyImage");
 					newImage.attr("data-stillURL", results[j].images.fixed_height_still.url);
 					newImage.attr("data-URL", results[j].images.fixed_height.url);
 					newImage.attr("data-imageStatus", "still");
@@ -82,6 +83,45 @@ $(document.body).on("click", ".subjectButton", function() {
 
 }); // end subjectButton click
 
+
+
+// click add button to add a new item to the list
+$(document.body).on("click", "#submitButton", function() {
+
+	// prevent the submit button from trying to submit form data
+	event.preventDefault();
+
+	var inputCartoon = $("#inputCartoon").val().trim();
+
+	arrayCartoons.push(inputCartoon);
+
+	console.log("arrayCartoons " + arrayCartoons);
+
+	createButton(inputCartoon);
+
+}); // end of add button click
+
+
+// animate the gifs
+$(document.body).on("click", ".giphyImage", function() {
+
+// use the currentStatus to toggle the "src" URL between the still and animated URLs
+
+	var stillURL = $(this).attr("data-stillURL");
+	var animatedURL = $(this).attr("data-URL");	
+	var currentStatus = $(this).attr("data-imageStatus");
+
+	if (currentStatus == "still") {
+		$(this).attr("src", animatedURL);
+		$(this).attr("data-imageStatus", "animated");
+	}
+
+	if (currentStatus == "animated") {
+		$(this).attr("src", stillURL);
+		$(this).attr("data-imageStatus", "still");
+	}
+
+});
 
 
 // run once the page has loaded
