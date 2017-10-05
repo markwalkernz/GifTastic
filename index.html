@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<title>GifTastic</title>
 
+	<!-- links to bootstrap, stylesheet and jquery -->
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -15,22 +17,30 @@
 </head>
 <body>
 
+
 <div class = "container">
-	<div class = "row">
-		<header>
-			<h1>Saturday morning... cartoon time!</h1>
-		</header>
-	</div>
+
+<header>
+	<img src="assets/images/cartoon-time.png" alt = "Cartoon Time" id = "headerImage">
+</header>
+
+	<!-- subject buttons -->
 	<div class = "row">
 		<div class = "col-md-12" id = "buttons"></div>
 	</div>
 
+	<!-- heading for images -->
 	<div class = "row">
 		<div class = "col-md-12" id = "subject"></div>
 	</div>
 
+	
 	<div class = "row">
-		<div class = "col-md-8" id = "images"></div>
+		
+		<!-- images -->
+		<div class = "col-md-8 d-flex flex-wrap" id = "images"></div>
+		
+		<!-- form to add new subject -->
 		<div class = "col-md-4" id = "forms">
 			<form>
 				<div class="form-group">
@@ -46,9 +56,11 @@
 			<li>Start and stop cartoon animation by clicking on the image.</li>
 			</ul>
 		</div>
+
 	</div>
 </div>	
 
+<!-- link to javascript -->
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>

@@ -1,2 +1,32 @@
 /* Coding boot camp week 6 homework. AJAX and APIs. */
 
+body {
+	background: url("../images/cloudy-day.png"); /*no-repeat center fixed*/
+}
+
+#headerImage {
+	max-width: 100%;
+	min-height: 50px;
+	padding-bottom: 10px;
+}
+
+#subject {
+	padding-top: 10px;
+	min-height: 60px;
+}
+
+.subjectButton {
+	margin: 5px;
+}
+
+.imageDiv {
+	padding: 5px;
+}
+
+.giphyImage {
+	height: 150px;
+}
+
+form {
+	padding: 20px 0px;
+}
