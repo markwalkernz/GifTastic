@@ -1,2 +1,3 @@
 # GifTastic
-Coding Boot Camp week 6 homework. AJAX and APIs.
+
+Demonstrates the use of jquery and AJAX to access the giphy API and retrieve user specified images.

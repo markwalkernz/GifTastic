@@ -1,9 +1,10 @@
 /* Coding boot camp week 6 homework. AJAX and APIs. */
 
 body {
-	background: url("../images/cloudy-day.png"); /*no-repeat center fixed*/
+	background: url("../images/cloudy-day.png");
 }
 
+/* header resizes to fit window */
 #headerImage {
 	max-width: 100%;
 	min-height: 50px;
